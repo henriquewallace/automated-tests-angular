@@ -32,4 +32,14 @@ it('should not generate id when id input property is filled', () => {
   fixture.detectChanges();
   expect(component.id).toBe(someId);
 });
+
+it(`#${LikeWidgetComponent.prototype.like.name}
+  should trigger emition when called`, done => {
+    fixture.detectChanges();
+    component.liked.subscribe(() => {
+      expect(true).toBeTrue();
+      done();
+    });
+    component.like();
+    });
 });
