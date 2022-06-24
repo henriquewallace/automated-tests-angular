@@ -25,4 +25,12 @@ it('should generate id when id input property is missing', () => {
   fixture.detectChanges();
   expect(component.id).toBeTruthy();
 });
+
+it('should not generate id when id input property is filled', () => {
+  const component = fixture.componentInstance;
+  const someId = 'someId';
+  component.id = someId;
+  fixture.detectChanges();
+  expect(component.id).toBe(someId);
+});
 });
