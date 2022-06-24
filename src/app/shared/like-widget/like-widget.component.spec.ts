@@ -34,12 +34,10 @@ it('should not generate id when id input property is filled', () => {
 });
 
 it(`#${LikeWidgetComponent.prototype.like.name}
-  should trigger emition when called`, done => {
+  should trigger emition when called`, () => {
+    spyOn(component.liked, 'emit');
     fixture.detectChanges();
-    component.liked.subscribe(() => {
-      expect(true).toBeTrue();
-      done();
-    });
     component.like();
-    });
+    expect(component.liked.emit).toHaveBeenCalled();
+});
 });
