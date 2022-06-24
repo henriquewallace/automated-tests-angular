@@ -16,7 +16,13 @@ beforeEach(async () => {
 });
 
 it('should create component', () => {
-  const instance = fixture.componentInstance;
-  expect(instance).toBeTruthy();
+  const component = fixture.componentInstance;
+  expect(component).toBeTruthy();
+});
+
+it('should generate id when id input property is missing', () => {
+  const component = fixture.componentInstance;
+  fixture.detectChanges();
+  expect(component.id).toBeTruthy();
 });
 });
